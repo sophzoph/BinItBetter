@@ -60,6 +60,17 @@
         setTimeout((function() {
         document.getElementById("answer").innerHTML=answer[questionNum];},2000);
     }
+    function nextQues() {
+        questionNum += 1
+        if (questionNum > 6) {
+            questionNum = 0
+        }
+        ;
+        document.getElementById("theColor").innerHTML = "";
+        document.getElementById("answer").innerHTML = "";
+        ques();
+    }
+
 
 </script>
 
