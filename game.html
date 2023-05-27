@@ -54,6 +54,13 @@
 
     var questionNum = -1
 
+    function ques(){
+        document.getElementById("theColor").innerHTML=question[questionNum];
+
+        setTimeout((function() {
+        document.getElementById("answer").innerHTML=answer[questionNum];},2000);
+    }
+
 </script>
 
 
