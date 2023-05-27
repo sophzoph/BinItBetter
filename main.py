@@ -1,5 +1,3 @@
-
-print("hi")
-print("hello")
-print('a')
-print("please show up")
+# can you see this
+print('hello world')
+# hd
