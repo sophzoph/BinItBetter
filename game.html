@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Binwise</title>
+    <title>BinItBetter</title>
     <style>
         body {
             display: flex;
@@ -17,8 +17,8 @@
         }
 
         #food-image {
-            width: 200px;
-            height: auto;
+            width: 150px;
+            height: 150px;
             margin-bottom: 20px;
             cursor: move;
         }
@@ -32,7 +32,7 @@
         .button {
             margin: 0 10px;
             cursor: pointer;
-            width: 150px;
+            width: 300px;
             height: auto;
         }
 
@@ -44,19 +44,19 @@
 
         h2 {font-size: 45px;font-weight: lighter;}
 
-        body {background-image:url(https://thumbs.dreamstime.com/b/основные-rgb-road-highway-city-park-countryside-cityscape-landscape-green-trees-grass-sky-vector-215215969.jpg);background-size:100%;}
+        body {background-image:url(https://static.vecteezy.com/system/resources/thumbnails/009/726/494/small_2x/pixel-park-with-tree-flowerbeds-benches-pots-and-trash-can-urban-landscape-cityscape-background-for-8bit-game-vector.jpg);background-size:100%;}
 
         input {font-size: 30px;font-family:Serif;}
     </style>
 </head>
 <body>
-    <h1>Binwise</h1>
+    <h1>BinItBetter</h1>
     <div class="game-container">
         <img id="food-image" src="food1.jpg" alt="Food Image" draggable="true">
         <div class="button-container">
-            <img class="button" src="https://lh3.googleusercontent.com/M2twHSjROIF33iR6xSFnzeGocHq9yqYwtyxvz67y4XNDBIOFtjEBrD714o21s1K8P1sZtxoVEHO8sRDqdfAe30X0gpoNJ-A1gxFKLAZ3" alt="Compost" onclick="sortFood('compost')">
-            <img class="button" src="https://lh3.googleusercontent.com/SRk1Mk9Dl9XcBWWm9qQgesCOs6XSsCoZn_Qlv2iJbAI-yXzexsPlcERgaAdmudw8XRWAPatG4TH3zfDYvsdC4rtBhDe43gFyKGtsldO4_w" alt="Recycle" onclick="sortFood('recycle')">
-            <img class="button" src="https://lh3.googleusercontent.com/61TKLKOJ5Q0ooM29-J67Z31hNj2_TaF0PVmjcmesFmlA1Uv9feMm1tXI0jMkEKTbkjTqxqQOYTzUedZAWjLi13X-846FDK-Be3lnFFo" alt="Landfill" onclick="sortFood('landfill')">
+            <img class="button" src="https://lh3.googleusercontent.com/mXOPejvx1GAYMWHNYnkCQu4EeUq5fDXJS3UcAMHUWYInkWAnQjjk5ob0uA9me4YyxiWBUHgZm4gu-qhQtM4pVppRJ8vsa9y3XU7EDK0S" alt="Compost" onclick="sortFood('compost')">
+            <img class="button" src="https://lh3.googleusercontent.com/QwcjJ8YHiomI9OUtwvGEUBVB5bdyhWsOa3uQ19b2f5lEymgxuEekhiAejpX_rk0u6ZlEThr1z1NiH6gUcTWMLRZ1GJcnuKUclpaeLhJA" alt="Recycle" onclick="sortFood('recycle')">
+            <img class="button" src="https://lh3.googleusercontent.com/p6dLKoc53COXmffs_1Zdm3rnh_HAgHhkcFUsaUhRPjMYQGQ3-NQoMroQ_boOWczGxh5XwHXOUjBD8pVIeM3WJhhfRN4hTT5YfiW_RPjM" alt="Landfill" onclick="sortFood('landfill')">
         </div>
         <div id="result"></div>
         <div class="navigation-buttons">
@@ -69,7 +69,7 @@
         var foodList = [
             {
                 name: "Banana Peel",
-                image: "https://banner2.cleanpng.com/20180702/bb/kisspng-banana-peel-clip-art-5b3ad4e3bcc6b4.2444386915305822437732.jpg",
+                image: "https://png.pngtree.com/png-clipart/20210619/ourmid/pngtree-cartoon-pixel-fruit-peeled-banana-png-image_3429185.jpg",
                 category: "compost"
             },
             {
@@ -84,9 +84,36 @@
             },
             {
                 name: "Paper Towel",
-                image: "https://w7.pngwing.com/pngs/356/695/png-transparent-paper-towel-paper-towel-cartoon-toilet-paper-miscellaneous-cartoon-character-angle.png",
+                image: "https://img.freepik.com/premium-vector/pixel-art-style-18-bit-toilet-paper-vector_682225-83.jpg",
                 category: "landfill"
             },
+            {
+                name: "Notebooks",
+                image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
+                category: "recycle"
+            },
+            {
+                name: "Cardboard Box",
+                image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
+                category: "recycle"
+            },
+            {
+                name: "In and Out Bag",
+                image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
+                category: "landfill"
+            },
+            {
+                name: "Target Bag",
+                image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
+                category: "landfill"
+            },
+            {
+                name: "Tapioca Pearl",
+                image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
+                category: "recycle"
+            },
+
+
 
         ];
 
