@@ -1,196 +1,130 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html>
-
 <head>
+    <title>Binwise</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-<title> Binwise </title>
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
 
+        #food-image {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+            cursor: move;
+        }
 
-<style>
-    .game-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 50px;
-    }
-    #food-image {
-        width: 300px;
-        height: auto;
-        margin-bottom: 20px;
-    }
-    .button-container {
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-    }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
 
-    .button {
-        margin: 0 10px;
-        cursor: pointer;
-    }
+        .button {
+            margin: 0 10px;
+            cursor: pointer;
+        }
 
-    #result {
-        margin-top: 20px;
-        text-align: center;
-    }
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+        h1 {font-size: 55px;}
 
-    h1 {font-size: 55px;}
+        h2 {font-size: 45px;font-weight: lighter;}
 
-    h2 {font-size: 45px;font-weight: lighter;}
+        body {background-image:url(https://img.freepik.com/premium-photo/park-grass-city-skyline-background_1417-13274.jpg);background-size:100%;}
 
-    body {background-image:url(https://img.freepik.com/premium-photo/park-grass-city-skyline-background_1417-13274.jpg);background-size:100%;}
-
-    input {font-size: 30px;font-family:Serif;}
-
-</style>
-
-
+        input {font-size: 30px;font-family:Serif;}
+    </style>
 </head>
-
-
 <body>
-
-<center>
-
-<div>
-    <h1 id="theColor"> Binwise </h1>
-
-    <h2 id = "answer"> Click 'Next' to start </h2>
-</div>
-
+    <h1>Binwise</h1>
     <div class="game-container">
-        <img id="food-image" src="food1.jpg" alt="Food Image">
+        <img id="food-image" src="food1.jpg" alt="Food Image" draggable="true">
         <div class="button-container">
             <img class="button" src="https://lh3.googleusercontent.com/M2twHSjROIF33iR6xSFnzeGocHq9yqYwtyxvz67y4XNDBIOFtjEBrD714o21s1K8P1sZtxoVEHO8sRDqdfAe30X0gpoNJ-A1gxFKLAZ3" alt="Compost" onclick="sortFood('compost')">
             <img class="button" src="https://lh3.googleusercontent.com/SRk1Mk9Dl9XcBWWm9qQgesCOs6XSsCoZn_Qlv2iJbAI-yXzexsPlcERgaAdmudw8XRWAPatG4TH3zfDYvsdC4rtBhDe43gFyKGtsldO4_w" alt="Recycle" onclick="sortFood('recycle')">
             <img class="button" src="https://lh3.googleusercontent.com/61TKLKOJ5Q0ooM29-J67Z31hNj2_TaF0PVmjcmesFmlA1Uv9feMm1tXI0jMkEKTbkjTqxqQOYTzUedZAWjLi13X-846FDK-Be3lnFFo" alt="Landfill" onclick="sortFood('landfill')">
         </div>
         <div id="result"></div>
+        <div class="navigation-buttons">
+            <button class="button" onclick="previousFood()">Previous</button>
+            <button class="button" onclick="nextFood()">Next</button>
+        </div>
     </div>
 
-<div>
+    <script>
+        var foodList = [
+            {
+                name: "Banana Peel",
+                image: "https://banner2.cleanpng.com/20180702/bb/kisspng-banana-peel-clip-art-5b3ad4e3bcc6b4.2444386915305822437732.jpg",
+                category: "compost"
+            },
+            {
+                name: "Plastic Bottle",
+                image: "https://banner2.cleanpng.com/20180208/ulw/kisspng-water-bottle-glass-bottle-plastic-bottle-blue-water-bottle-5a7cb32c6abc28.0248449715181217724372.jpg",
+                category: "recycle"
+            },
+            {
+                name: "Chip Bag",
+                image: "https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/26352/bag-of-crisps-clipart-md.png",
+                category: "landfill"
+            },
+            {
+                name: "Paper Towel",
+                image: "https://w7.pngwing.com/pngs/356/695/png-transparent-paper-towel-paper-towel-cartoon-toilet-paper-miscellaneous-cartoon-character-angle.png",
+                category: "landfill"
+            }
+        ];
 
-<hr>
-    <input type = "button" value = "Back" onclick = "prevQues()">
+        var currentIndex = 0;
 
-    <input type = "button" value = "Next" onclick = "nextQues()">
-</div>
-
-</center>
-    <img id="displayed-image" src="" alt="Displayed Image">
-<script>
-    var question = [
-        "question 1",
-        "question 2",
-        "question 3",
-        "question 4",
-        "question 5",
-        "question 6",
-    ];
-
-    var answer = [
-        "answer 1",
-        "answer 2",
-        "answer 3",
-        "answer 4",
-        "answer 5",
-        "answer 6",
-    ];
-
-    var image = [
-        "urls in here"
-    ]
-
-    var questionNum = -1;
-
-
-    var foodList = [
-        {
-            name: "Banana Peel",
-            image: "https://appleforthat.stemilt.com/wp-content/uploads/2016/05/Jonagold-200px.png",
-            category: "compost",
-        },
-        {
-            name: "Plastic Bottle",
-            image: "food2.jpg",
-            category: "recycle"
-        },
-        {
-            name: "Crisp Packet",
-            image: "food3.jpg",
-            category: "landfill"
-        }
-    ];
-
-    var currentIndex = 0;
-
-    function loadFood() {
-        var foodImage = document.getElementById("food-image");
-        foodImage.src = foodList[currentIndex].image;
-    }
-
-    function sortFood(category) {
-        var resultElement = document.getElementById("result");
-        var currentFood = foodList[currentIndex];
-
-        if (category === currentFood.category) {
-            resultElement.textContent = "Correct! You placed " + currentFood.name + " in the " + category + " bin!";
-        } else {
-            resultElement.textContent = "Oops! That's incorrect. " + currentFood.name + " should be placed in the " + currentFood.category + " bin.";
+        function loadFood() {
+            var foodImage = document.getElementById("food-image");
+            foodImage.src = foodList[currentIndex].image;
         }
 
-        currentIndex++;
-        if (currentIndex >= foodList.length) {
-            currentIndex = 0;
+        function sortFood(category) {
+            var resultElement = document.getElementById("result");
+            var currentFood = foodList[currentIndex];
+
+            if (category === currentFood.category) {
+                resultElement.textContent = "Correct! You placed " + currentFood.name + " in the " + category + " bin!";
+            } else {
+                resultElement.textContent = "Oops! That's incorrect. " + currentFood.name + " should be placed in the " + currentFood.category + " bin.";
+            }
+        }
+
+        function previousFood() {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = foodList.length - 1;
+            }
+            loadFood();
+        }
+
+        function nextFood() {
+            currentIndex++;
+            if (currentIndex >= foodList.length) {
+                currentIndex = 0;
+            }
+            loadFood();
         }
 
         loadFood();
-    }
 
-    loadFood();
-
-    function ques(){
-        document.getElementById("theColor").innerHTML=question[questionNum];
-
-        setTimeout(function() {
-        document.getElementById("answer").innerHTML=answer[questionNum];},2000);
-    }
-    function nextQues() {
-        questionNum = questionNum + 1
-        if (questionNum > 6) {
-            questionNum = 0
-        };
-        document.getElementById("theColor").innerHTML = "";
-        document.getElementById("answer").innerHTML = "";
-        ques();
-    }
-    function prevQues() {
-        questionNum = questionNum - 1
-        if (questionNum < 0) {
-            questionNum = 0
-        };
-        document.getElementById("theColor").innerHTML = "";
-        document.getElementById("answer").innerHTML = "";
-        ques();
-    }
-
-    var imageList = [
-        "https://appleforthat.stemilt.com/wp-content/uploads/2016/05/Jonagold-200px.png",
-        "image2.jpg",
-        "image3.jpg"
-    ];
-
-    function displayImage(index){
-        var displayedImage = document.getElementById("displayed-image");
-        displayedImage.src = imageList[index];
-    }
-
-</script>
+    </script>
 
 </body>
 
 </html>
-
-
-
