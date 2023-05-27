@@ -1,1 +1,2 @@
-print('this worl')
+x = 'a'
+print(x)
