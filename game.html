@@ -62,7 +62,17 @@
     }
     function nextQues() {
         questionNum += 1
-        if (questionNum > 6) {
+        if (questionNum > 5) {
+            questionNum = 0
+        }
+        ;
+        document.getElementById("theColor").innerHTML = "";
+        document.getElementById("answer").innerHTML = "";
+        ques();
+    }
+    function prevQues() {
+        questionNum -= 1
+        if (questionNum < 0) {
             questionNum = 0
         }
         ;
