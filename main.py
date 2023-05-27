@@ -1,2 +1,3 @@
-x = 'a'
-print(x)
+
+print("hi")
+print("hello")
