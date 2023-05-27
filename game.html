@@ -8,12 +8,38 @@
 
 
 <style>
+    .game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
+    #food-image {
+        width: 300px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .button {
+        margin: 0 10px;
+        cursor: pointer;
+    }
+
+    #result {
+        margin-top: 20px;
+        text-align: center;
+    }
 
     h1 {font-size: 55px;}
 
     h2 {font-size: 45px;font-weight: lighter;}
 
-    body {background-image:url(https://static.wixstatic.com/media/7c058c_a3be9a8ca3194634ac438625b5b0c959~mv2.jpg/v1/fill/w_640,h_462,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/7c058c_a3be9a8ca3194634ac438625b5b0c959~mv2.jpg);background-size:100%;}
+    body {background-image:url(https://img.freepik.com/premium-photo/park-grass-city-skyline-background_1417-13274.jpg);background-size:100%;}
 
     input {font-size: 30px;font-family:Serif;}
 
@@ -33,6 +59,16 @@
     <h2 id = "answer"> Click 'Next' to start </h2>
 </div>
 
+    <div class="game-container">
+        <img id="food-image" src="food1.jpg" alt="Food Image">
+        <div class="button-container">
+            <img class="button" src="https://lh3.googleusercontent.com/M2twHSjROIF33iR6xSFnzeGocHq9yqYwtyxvz67y4XNDBIOFtjEBrD714o21s1K8P1sZtxoVEHO8sRDqdfAe30X0gpoNJ-A1gxFKLAZ3" alt="Compost" onclick="sortFood('compost')">
+            <img class="button" src="https://lh3.googleusercontent.com/SRk1Mk9Dl9XcBWWm9qQgesCOs6XSsCoZn_Qlv2iJbAI-yXzexsPlcERgaAdmudw8XRWAPatG4TH3zfDYvsdC4rtBhDe43gFyKGtsldO4_w" alt="Recycle" onclick="sortFood('recycle')">
+            <img class="button" src="https://lh3.googleusercontent.com/61TKLKOJ5Q0ooM29-J67Z31hNj2_TaF0PVmjcmesFmlA1Uv9feMm1tXI0jMkEKTbkjTqxqQOYTzUedZAWjLi13X-846FDK-Be3lnFFo" alt="Landfill" onclick="sortFood('landfill')">
+        </div>
+        <div id="result"></div>
+    </div>
+
 <div>
 
 <hr>
@@ -42,7 +78,7 @@
 </div>
 
 </center>
-
+    <img id="displayed-image" src="" alt="Displayed Image">
 <script>
     var question = [
         "question 1",
@@ -62,7 +98,57 @@
         "answer 6",
     ];
 
+    var image = [
+        "urls in here"
+    ]
+
     var questionNum = -1;
+
+
+    var foodList = [
+        {
+            name: "Banana Peel",
+            image: "https://appleforthat.stemilt.com/wp-content/uploads/2016/05/Jonagold-200px.png",
+            category: "compost",
+        },
+        {
+            name: "Plastic Bottle",
+            image: "food2.jpg",
+            category: "recycle"
+        },
+        {
+            name: "Crisp Packet",
+            image: "food3.jpg",
+            category: "landfill"
+        }
+    ];
+
+    var currentIndex = 0;
+
+    function loadFood() {
+        var foodImage = document.getElementById("food-image");
+        foodImage.src = foodList[currentIndex].image;
+    }
+
+    function sortFood(category) {
+        var resultElement = document.getElementById("result");
+        var currentFood = foodList[currentIndex];
+
+        if (category === currentFood.category) {
+            resultElement.textContent = "Correct! You placed " + currentFood.name + " in the " + category + " bin!";
+        } else {
+            resultElement.textContent = "Oops! That's incorrect. " + currentFood.name + " should be placed in the " + currentFood.category + " bin.";
+        }
+
+        currentIndex++;
+        if (currentIndex >= foodList.length) {
+            currentIndex = 0;
+        }
+
+        loadFood();
+    }
+
+    loadFood();
 
     function ques(){
         document.getElementById("theColor").innerHTML=question[questionNum];
@@ -72,7 +158,7 @@
     }
     function nextQues() {
         questionNum = questionNum + 1
-        if (questionNum > 5) {
+        if (questionNum > 6) {
             questionNum = 0
         };
         document.getElementById("theColor").innerHTML = "";
@@ -87,6 +173,17 @@
         document.getElementById("theColor").innerHTML = "";
         document.getElementById("answer").innerHTML = "";
         ques();
+    }
+
+    var imageList = [
+        "https://appleforthat.stemilt.com/wp-content/uploads/2016/05/Jonagold-200px.png",
+        "image2.jpg",
+        "image3.jpg"
+    ];
+
+    function displayImage(index){
+        var displayedImage = document.getElementById("displayed-image");
+        displayedImage.src = imageList[index];
     }
 
 </script>
