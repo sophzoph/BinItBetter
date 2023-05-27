@@ -36,9 +36,23 @@
             height: auto;
         }
 
-        #result {
-            margin-top: 20px;
+        #result-dialog {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
             text-align: center;
+        }
+
+        #fun-fact-dialog {
+            position: fixed;
+            top: 200px;
+            left: 10px;
+            width: 350px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
         }
         h1 {font-size: 55px;}
 
@@ -58,11 +72,14 @@
             <img class="button" src="https://lh3.googleusercontent.com/QwcjJ8YHiomI9OUtwvGEUBVB5bdyhWsOa3uQ19b2f5lEymgxuEekhiAejpX_rk0u6ZlEThr1z1NiH6gUcTWMLRZ1GJcnuKUclpaeLhJA" alt="Recycle" onclick="sortFood('recycle')">
             <img class="button" src="https://lh3.googleusercontent.com/p6dLKoc53COXmffs_1Zdm3rnh_HAgHhkcFUsaUhRPjMYQGQ3-NQoMroQ_boOWczGxh5XwHXOUjBD8pVIeM3WJhhfRN4hTT5YfiW_RPjM" alt="Landfill" onclick="sortFood('landfill')">
         </div>
-        <div id="result"></div>
+        <div id="result-dialog">
+            <span id="result"></span>
+        </div>
         <div class="navigation-buttons">
             <button class="button" onclick="previousFood()">Previous</button>
             <button class="button" onclick="nextFood()">Next</button>
         </div>
+        <div id="fun-fact-dialog"></div>
     </div>
 
     <script>
@@ -70,92 +87,104 @@
             {
                 name: "Banana Peel",
                 image: "https://lh3.googleusercontent.com/uJVPhpWL0tq0_tfqHcQWOtBIZ1N9wQkT0Oa1Pq7xCGHQHOKSwDEqhj2Oa9lI_ns3TJpxpQf8gLzZk69Aqs83AzfZEE5riOd7tsVyjo1O",
-                category: "compost"
+                category: "compost",
+                funFact: "fun fact"
             },
             {
                 name: "Plastic Bottle",
                 image: "https://banner2.cleanpng.com/20180208/ulw/kisspng-water-bottle-glass-bottle-plastic-bottle-blue-water-bottle-5a7cb32c6abc28.0248449715181217724372.jpg",
-                category: "recycle"
+                category: "recycle",
+                funFact: "fun fact"
             },
             {
                 name: "Chip Bag",
                 image: "https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/26352/bag-of-crisps-clipart-md.png",
-                category: "landfill"
+                category: "landfill",
+                funFact: "fun fact"
             },
             {
                 name: "Paper Towel",
                 image: "https://img.freepik.com/premium-vector/pixel-art-style-18-bit-toilet-paper-vector_682225-83.jpg",
-                category: "landfill"
+                category: "landfill",
+                funFact: "fun fact"
             },
             {
                 name: "Loose-Leaf Paper",
                 image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "recycle"
+                category: "recycle",
+                funFact: "fun fact"
             },
             {
                 name: "Cardboard Box",
                 image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "recycle"
-            },
-            {
-                name: "In and Out Bag",
-                image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "landfill"
+                category: "recycle",
+                funFact: "fun fact"
             },
             {
                 name: "Target Bag",
                 image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "landfill"
+                category: "landfill",
+                funFact: "fun fact"
             },
             {
                 name: "Tapioca Pearl",
                 image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "recycle"
+                category: "recycle",
+                funFact: "fun fact"
             },
             {
                 name: "Pinecones",
                 image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "compost"
+                category: "compost",
+                funFact: "fun fact"
             },
             {
                 name: "Plastic Utensils",
                 image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "landfill"
+                category: "landfill",
+                funFact: "fun fact"
             },
             {
                 name: "Biodegradable Utensils",
                 image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "compost"
+                category: "compost",
+                funFact: "fun fact"
             },
             {
                 name: "Laundry Detergent Bottle",
                 image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "Recycle"
+                category: "Recycle",
+                funFact: "fun fact"
             },
             {
                 name: "Styrofoam",
                 image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "landfill"
+                category: "landfill",
+                funFact: "fun fact"
             },
             {
                 name: "Sandwich",
                 image: "https://lh3.googleusercontent.com/6jaScjguP606JMALt7c4HsAK45ubbRlKJsa__pSvMJEUFS3BOk44ZpEZrOhsnWzDYTsXa7jnPD36P7PA87MuRyhoZULAUZP7qMuUO60",
-                category: "compost"
+                category: "compost",
+                funFact: "fun fact"
             },
             {
                 name: "Chapstick Tubes",
                 image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "landfill"
+                category: "landfill",
+                funFact: "fun fact"
             },
             {
                 name: "Styrofoam",
                 image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "landfill"
+                category: "landfill",
+                funFact: "fun fact"
             },
             {
                 name: "Food-soiled Paper",
                 image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "compost"
+                category: "compost",
+                funFact: "fun fact"
             }
         ];
 
@@ -172,8 +201,10 @@
 
             if (category === currentFood.category) {
                 resultElement.textContent = "Correct! You placed " + currentFood.name + " in the " + category + " bin!";
+                showFunFact(currentFood.funFact);
             } else {
                 resultElement.textContent = "Oops! That's incorrect. " + currentFood.name + " should be placed in the " + currentFood.category + " bin.";
+                clearFunFact();
             }
         }
 
@@ -183,6 +214,7 @@
                 currentIndex = foodList.length - 1;
             }
             loadFood();
+            clearFunFact();
         }
 
         function nextFood() {
@@ -191,6 +223,17 @@
                 currentIndex = 0;
             }
             loadFood();
+            clearFunFact();
+        }
+
+        function showFunFact(funFact) {
+            var dialogElement = document.getElementById("fun-fact-dialog");
+            dialogElement.textContent = "Fun Fact: " + funFact;
+        }
+
+        function clearFunFact() {
+            var dialogElement = document.getElementById("fun-fact-dialog");
+            dialogElement.textContent = "";
         }
 
         loadFood();
