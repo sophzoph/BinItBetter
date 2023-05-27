@@ -45,11 +45,19 @@
     var question = [
         "question 1",
         "question 2",
+        "question 3",
+        "question 4",
+        "question 5",
+        "question 6",
     ]
 
     var answer = [
         "answer 1",
         "answer 2",
+        "answer 3",
+        "answer 4",
+        "answer 5",
+        "answer 6",
     ]
 
     var questionNum = -1
@@ -61,32 +69,27 @@
         document.getElementById("answer").innerHTML=answer[questionNum];},2000);
     }
     function nextQues() {
-        questionNum += 1
+        questionNum = questionNum + 1
         if (questionNum > 5) {
             questionNum = 0
-        }
-        ;
+        };
         document.getElementById("theColor").innerHTML = "";
         document.getElementById("answer").innerHTML = "";
         ques();
     }
     function prevQues() {
-        questionNum -= 1
+        questionNum = questionNum - 1
         if (questionNum < 0) {
             questionNum = 0
-        }
-        ;
+        };
         document.getElementById("theColor").innerHTML = "";
         document.getElementById("answer").innerHTML = "";
         ques();
     }
 
-
 </script>
 
-
 </body>
-
 
 </html>
 
