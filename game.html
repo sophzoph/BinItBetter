@@ -109,12 +109,26 @@
             }
         }
 
+        iframe {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            border: none;
+            z-index: 9999;
+        }
+
+
 
     </style>
 </head>
 <body>
     <h1>BinItBetter</h1>
-    <audio src="/Users/sophiazhang/Downloads/animalcrossing.mp3" autoplay loop></audio>
+    <iframe width="5%" height="50" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-254781959/tom-nook-theme-venushacks&color=%23030303&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+    </iframe>
+
     <div class="moving-images">
      <img src="https://lh3.googleusercontent.com/9f_ni9VIosQAnHJ6c_7dNHcmbyO6pgeJMSLCDMN7lSJNIAPHpL7QDEHJO1LwRfHCxWrNeVJ792pv9xfOkNKdPYUgGNiknsGwgN_oWlA">
      <img src="https://lh3.googleusercontent.com/9f_ni9VIosQAnHJ6c_7dNHcmbyO6pgeJMSLCDMN7lSJNIAPHpL7QDEHJO1LwRfHCxWrNeVJ792pv9xfOkNKdPYUgGNiknsGwgN_oWlA">
@@ -138,6 +152,19 @@
     </div>
 
     <script>
+        function loadPlayerAPI() {
+            if (!window.SC) {
+                var script = document.createElement('script');
+                script.src = 'https://w.soundcloud.com/player/api.js';
+                script.onload = function() {
+                    initializePlayer();
+                };
+                document.head.appendChild(script);
+            } else {
+                initializePlayer();
+            }
+        }
+
         var foodList = [
             {
                 name: "Banana Peel",
