@@ -35,7 +35,7 @@
             cursor: pointer;
             width: 150px;
             height: auto;
-            border-radius: 25px;
+            border-radius: 10px;
         }
 
         #result-dialog {
@@ -74,11 +74,56 @@
             100% { transform: translateY(0); }
         }
 
+        @keyframes floatAnimation {
+            0% { left: 0; }
+            50% { left: calc(100% - 200px); }
+            100% { left: 0; }
+        }
+
+        .floating-image {
+            position: absolute;
+            top: 150px;
+            left: 100px;
+            transform: translate(-50%, -50%);
+            animation: floatAnimation 15s linear infinite;
+            z-index: -1;
+        }
+
+        .floating-image img {
+            width: 300px;
+            height: 200px;
+        }
+
+        @keyframes floatAnimation2 {
+            0% { left: 500px; }
+            50% { left: calc(100% - 200px); }
+            100% { left: 500px; }
+        }
+
+        .floating-image2 {
+            position: absolute;
+            top: 350px;
+            left: 1000px;
+            transform: translate(-50%, -50%);
+            animation: floatAnimation2 12s linear infinite alternate;
+            z-index: -1;
+        }
+
+        .floating-image2 img {
+            width: 200px;
+            height: 150px;
+        }
+
     </style>
 </head>
 <body>
     <h1>BinItBetter</h1>
-
+    <div class="floating-image">
+        <img src="https://lh3.googleusercontent.com/ibPS07YupPDdpa6Ah5OvP_tRTpitiqjCIC6219dmc4KISY72nF-BRNSWbrfimoxHT8j3QK-pJM8fmU15Q2quR3r6fv5iptg7DgBNKPw" alt="Floating Image">
+    </div>
+    <div class="floating-image2">
+        <img src="https://lh3.googleusercontent.com/ibPS07YupPDdpa6Ah5OvP_tRTpitiqjCIC6219dmc4KISY72nF-BRNSWbrfimoxHT8j3QK-pJM8fmU15Q2quR3r6fv5iptg7DgBNKPw" alt="Floating Image">
+    </div>
     <div class="game-container">
         <img id="food-image" src="food1.jpg" alt="Food Image" draggable="true">
         <div class="button-container">
@@ -100,7 +145,7 @@
         var foodList = [
             {
                 name: "Banana Peel",
-                image: "https://lh3.googleusercontent.com/jBIMyybsKcDgZ2-XO8PLVDKWgQgwemfr9McXk268pkSbAXlBfr-rhZzHCTaWVoovs7eMM6jqflRig3TQnzV8PF7h5F1fl34xBYUUZJ0l",
+                image: "https://lh3.googleusercontent.com/cvOOr322v_a81CxTotZ9wb7ozS_4M4G5l_t9dPibSmXzPKz27CUx6qbjnoZnZkhDOanUCAX91SYiwjJQrVkI41IHVZAPVy-KrViSS_Y",
                 category: "compost",
                 funFact: "fun",
                 source: ""
@@ -121,35 +166,35 @@
             },
             {
                 name: "Chip Bag",
-                image: "https://lh3.googleusercontent.com/B8QQBRsM7Ec4cbLkogs05_1VkRdARUt0aHcPCfVruq-OPOjjCfbWonsrkzTOmX9yK0m-vWRN-Ci-yoWlsIlxIjTGre3B8-68l9srvaqO",
+                image: "https://lh3.googleusercontent.com/vS4p97SIah3SX_UAuOPp_2K7HAWqIppovT7RE4NClisQqEeHF3rr3et4pyOiNwSWVQ2Lq5XqANs_PMa3xOjLUHbl-2IUHLFlg2dAEpw",
                 category: "landfill",
                 funFact: "The shiny lining in chip bags is often aluminum or mixed plastic. Since recycling plants cannot separate the layers, these mixed-material bags cannot be recycled. Toss them in the garbage.",
                 source: "https://naparecycling.com/guide/potato-chip-snack-bags/#:~:text=The%20shiny%20lining%20in%20chip,Toss%20them%20in%20the%20garbage."
             },
             {
                 name: "Paper Towel",
-                image: "https://lh3.googleusercontent.com/MQHkfSva60FYn0csD0z_Vn8G8T_ULVHj1-tIgH7JzlzDrn7SwSKtLlU6SjESCb6lzH7yub_gJCCJckQHkp4A8D-hD0bUcUtTT-mBvkq8yQ",
+                image: "https://lh3.googleusercontent.com/Dqhql0YqxbMmgvwHinSiVlQy_GY87BpSC-yVkOyJEyto_qzeuwfjjFRef7l4gFNwIZulLtsq20KMqbmmq8zY6fK0cYRv6hc_mMjSWifP",
                 category: "landfill",
                 funFact: "fun fact",
                 source: ""
             },
             {
                 name: "Cardboard Box",
-                image: "https://lh3.googleusercontent.com/XRatqcolgG0gBw1B1zSrClAAnurOH8gv9AjSyvCKPvIhK1dz47pl2GT3gKZkNvABjTxvv_W2f-AZDcWrQhCm5LDidoW-QQQxEsR94vB4",
+                image: "https://lh3.googleusercontent.com/lEryYSZUKtl-TFoMuhvCwYSqwZ1IMs-slCGq9IyNnWEtJrWfGuIpomEKCdwd-FX3B_nFT5usvx0VYmu416UYwJXqqNudKPMTTo33Y0ir",
                 category: "recycle",
                 funFact: " In 2018, approximately 32.1 million tons of corrugated boxes were recycled out of 33.9 million tons of total paper and paperboard recycling. ",
                 source: "https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/containers-and-packaging-product-specific#PaperandPaperboardC&P"
             },
             {
                 name: "Pinecone",
-                image: "https://lh3.googleusercontent.com/5UjbF-mA97gzoC0grBPOyXKwRoDd73Fo3EJzLonEaTJ1jnNM7rwi_z3mephaa3p6cbNfeh2LYar7QbSS8yFEikeUA3J7qLNhQnvPs2kG",
+                image: "https://lh3.googleusercontent.com/wfqnYwiJVPGscKgcVQNO70jtEZmxzI9rsOzMq9aGjWuzbT5TYIieZ2eNskVP36yQsu6TgeFQpMopnno83Xo8Rgp_3aHKeuBTKjungHue0A",
                 category: "compost",
                 funFact: "fun fact",
                 source: ""
             },
             {
                 name: "Plastic Utensils",
-                image: "https://lh3.googleusercontent.com/HKVBlfd3q8yofKcK50fO2NPNPpcOce8OIeG8zHu_nzIsg0p1I-462nV75nYuW1SaGLI67XBJTebNO33LSqyHQrVXYT7gpw8DshwsQchP",
+                image: "https://lh3.googleusercontent.com/A81jY_FuZW4qr4OmtgnGpA1KkCVbqfyXuo4IqLup1fM_4L6E8PkblS27Dh4nqZSeC_eAVOXQl1FQhgXcj07v3n-iW4GCKaP8oORxbB8",
                 category: "landfill",
                 funFact: "Each year 40 billion plastic forks, spoons, and knives are used and thrown away each year in the US.",
                 source: "https://habitsofwaste.org/call-to-action/plastic-straws-cutlery/"
@@ -163,14 +208,14 @@
             },
             {
                 name: "Sandwich",
-                image: "https://lh3.googleusercontent.com/0rhvbJSaoWWOwWC9yiyJ0ZHywgqGtM_GK-tKLXcG7dPCQh43x4MpquBP4gq21QxoiTvWql1h3-1RLvMmCmyOWVIDYliEwAmzE2zwH0o",
+                image: "https://lh3.googleusercontent.com/H2HD0JwQjt170iPw1ViZaaa7sb0VsaX7KoGY8VoOjualprPuLyepI0iSdWnOvfhBSu3JUSaZHTV0Kj4lO7ZsN8c9FwpWMpWqS7OSeLMu",
                 category: "compost",
                 funFact: "Composting food scraps reduces and in some cases eliminates the need for chemical fertilizers.",
                 source: "https://www.epa.gov/sustainable-management-food/reducing-impact-wasted-food-feeding-soil-and-composting"
             },
             {
                 name: "Tea Bag",
-                image: "https://lh3.googleusercontent.com/bO2LfnR5J5kHfq5YJWN8H-JfCVyLlT8RzidF1iSWkocyz9lr9PkaG12uRdlKPi_Y6gTSc5oaiJOP1kuJ_2Y38yJvOapSeq-nMPdQmCxDhg",
+                image: "https://lh3.googleusercontent.com/p9-d3vB69mqP80gpzE9HKVM3vDTMLOgUUKZ6ahWAOpScK8G3L2nHzEq2w7mtP5oGOV3gE7ifhALpeS1_GTqo59pFAAoNR-WgGLsiPH8Q",
                 category: "compost",
                 funFact: "To properly compost tea bags, make sure to drain any excess liquid down the sink, remove any staples from the tea bag before composting and separate the tea leaves from the bags to put into the compost.",
                 source: "https://www.calgary.ca/waste/what-goes-where/tea-bags-coffee-filters.html#:~:text=Special%20instructions%3A,separated%20out%20for%20the%20compost)."
