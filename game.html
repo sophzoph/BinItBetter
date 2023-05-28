@@ -67,10 +67,33 @@
         body {background-image:url(https://lh3.googleusercontent.com/1x2oRDugbU4Hi0sLt0prY48qqu2p0Vlkjed9xxNelrt0S1y4ViKuUuXIWwrIvzaB1PxdUmInOVkNJ9gs6Iiwa526YsM3hrLScT4vJFYm);background-size:100%;}
 
         input {font-size: 30px;font-family:Serif;}
+
+        @keyframes floatAnimation {
+            0% { left: 0; }
+            50% { left: calc(100% - 200px); }
+            100% { left: 0; }
+        }
+
+        .floating-image {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+            animation: floatAnimation 10s linear infinite;
+            z-index: -1;
+        }
+
+        .floating-image img {
+            width: 1000px; /* Adjust the width as desired */
+            height: 2000px; /* Maintain aspect ratio */
+        }
     </style>
 </head>
 <body>
     <h1>BinItBetter</h1>
+    <div class="floating-image">
+        <img src="https://lh3.googleusercontent.com/C99Ju_NjtLD1pfx1kBYNf3njUEz6n2amKk1zKM3o_W61wd1Kp8rNtIpm4PF8SqlVpGmHHXwdY7gCYIJDVY8BYB-3W6up2LFJdyyA2Qyz" alt="Floating Image">
+    </div>
     <div class="game-container">
         <img id="food-image" src="food1.jpg" alt="Food Image" draggable="true">
         <div class="button-container">
