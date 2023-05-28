@@ -43,6 +43,7 @@
             border: 1px solid #ccc;
             background-color: #f9f9f9;
             text-align: center;
+            display: none
         }
 
         #fun-fact-dialog {
@@ -53,7 +54,12 @@
             padding: 20px;
             border: 1px solid #ccc;
             background-color: #f9f9f9;
+            display: none;
         }
+        #fun-fact-dialog.show {
+            display: block;
+        }
+
         h1 {font-size: 55px;}
 
         h2 {font-size: 45px;font-weight: lighter;}
@@ -110,7 +116,7 @@
                 image: "https://lh3.googleusercontent.com/B8QQBRsM7Ec4cbLkogs05_1VkRdARUt0aHcPCfVruq-OPOjjCfbWonsrkzTOmX9yK0m-vWRN-Ci-yoWlsIlxIjTGre3B8-68l9srvaqO",
                 category: "landfill",
                 funFact: "The shiny lining in chip bags is often aluminum or mixed plastic. Since recycling plants cannot separate the layers, these mixed-material bags cannot be recycled. Toss them in the garbage.",
-                source: ""
+                source: "https://naparecycling.com/guide/potato-chip-snack-bags/#:~:text=The%20shiny%20lining%20in%20chip,Toss%20them%20in%20the%20garbage."
             },
             {
                 name: "Paper Towel",
@@ -120,25 +126,11 @@
                 source: ""
             },
             {
-                name: "Loose-Leaf Paper",
-                image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "recycle",
-                funFact: "fun fact",
-                source: ""
-            },
-            {
                 name: "Cardboard Box",
                 image: "https://lh3.googleusercontent.com/XRatqcolgG0gBw1B1zSrClAAnurOH8gv9AjSyvCKPvIhK1dz47pl2GT3gKZkNvABjTxvv_W2f-AZDcWrQhCm5LDidoW-QQQxEsR94vB4",
                 category: "recycle",
-                funFact: "fun fact",
-                source: ""
-            },
-            {
-                name: "Plastic Bag",
-                image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "landfill",
-                funFact: "fun fact",
-                source: ""
+                funFact: " In 2018, approximately 32.1 million tons of corrugated boxes were recycled out of 33.9 million tons of total paper and paperboard recycling. ",
+                source: "https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/containers-and-packaging-product-specific#PaperandPaperboardC&P"
             },
             {
                 name: "Pinecone",
@@ -151,15 +143,8 @@
                 name: "Plastic Utensils",
                 image: "https://lh3.googleusercontent.com/HKVBlfd3q8yofKcK50fO2NPNPpcOce8OIeG8zHu_nzIsg0p1I-462nV75nYuW1SaGLI67XBJTebNO33LSqyHQrVXYT7gpw8DshwsQchP",
                 category: "landfill",
-                funFact: "fun fact",
-                source: ""
-            },
-            {
-                name: "Biodegradable Utensils",
-                image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "compost",
-                funFact: "fun fact",
-                source: ""
+                funFact: "Each year 40 billion plastic forks, spoons, and knives are used and thrown away each year in the US.",
+                source: "https://habitsofwaste.org/call-to-action/plastic-straws-cutlery/"
             },
             {
                 name: "Laundry Detergent",
@@ -169,29 +154,8 @@
                 source: ""
             },
             {
-                name: "Styrofoam",
-                image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "landfill",
-                funFact: "fun fact",
-                source: "https://apps.npr.org/plastics-recycling/?utm_source=facebook.com&utm_campaign=npr&utm_medium=social&utm_term=nprnews&fbclid=IwAR0PhLX0SJN3_d1nFS-dVhsst4CdcjO6i60C2GpCy1lGToNA-95jDdJVL0c"
-            },
-            {
                 name: "Sandwich",
                 image: "https://lh3.googleusercontent.com/0rhvbJSaoWWOwWC9yiyJ0ZHywgqGtM_GK-tKLXcG7dPCQh43x4MpquBP4gq21QxoiTvWql1h3-1RLvMmCmyOWVIDYliEwAmzE2zwH0o",
-                category: "compost",
-                funFact: "fun fact",
-                source: ""
-            },
-            {
-                name: "Styrofoam",
-                image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
-                category: "landfill",
-                funFact: "Foam polystyrenes, like that found in meat packaging or egg cartons, is made of mostly air. A special machine is required to remove the air and condense the material into a patty or block for resale. These foam products have little value because once the air is removed, very little material remains.",
-                source: ""
-            },
-            {
-                name: "Food-soiled Paper",
-                image: "https://e7.pngegg.com/pngimages/741/115/png-clipart-three-assorted-color-spring-notebooks-notebook-pencil-diary-notebook-miscellaneous-supplies.png",
                 category: "compost",
                 funFact: "fun fact",
                 source: ""
@@ -206,6 +170,7 @@
         ];
 
         var currentIndex = 0;
+        var resultDialog = document.getElementById("result-dialog");
 
         function loadFood() {
             var foodImage = document.getElementById("food-image");
@@ -219,8 +184,11 @@
             if (category === currentFood.category) {
                 resultElement.textContent = "Correct! You placed " + currentFood.name + " in the " + category + " bin!";
                 showFunFact(currentFood.funFact);
+                resultDialog.style.display = "block";
+                showFunFact(currentFood.funFact, currentFood.source);
             } else {
-                resultElement.textContent = "Oops! That's incorrect. " + currentFood.name + " should be placed in the " + currentFood.category + " bin.";
+                resultElement.textContent = "Oops! That's incorrect. Please try again. ";
+                resultDialog.style.display = "block";
                 clearFunFact();
             }
         }
@@ -241,16 +209,19 @@
             }
             loadFood();
             clearFunFact();
+            resultDialog.style.display = "none";
         }
 
         function showFunFact(funFact, source) {
             var dialogElement = document.getElementById("fun-fact-dialog");
             dialogElement.innerHTML = "<p>Fun Fact: " + funFact + "</p><p><a href='" + source + "' target='_blank'>Learn more about " + foodList[currentIndex].name + "</a></p>";
+            dialogElement.classList.add("show");
         }
 
         function clearFunFact() {
             var dialogElement = document.getElementById("fun-fact-dialog");
             dialogElement.textContent = "";
+            dialogElement.classList.remove("show");
         }
 
         loadFood();
