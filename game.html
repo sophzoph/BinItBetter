@@ -14,6 +14,7 @@
             flex-direction: column;
             align-items: center;
             margin-top: 30px;
+            z-index: 1;
         }
 
         #food-image {
@@ -74,62 +75,49 @@
             100% { transform: translateY(0); }
         }
 
-        @keyframes floatAnimation {
-            0% { left: 0; }
-            50% { left: calc(100% - 200px); }
-            100% { left: 0; }
-        }
 
-        .floating-image {
+        .moving-images {
             position: absolute;
-            top: 150px;
-            left: 100px;
-            transform: translate(-50%, -50%);
-            animation: floatAnimation 15s linear infinite;
-            z-index: -1;
+            top: 7%;
+            left: 0;
+            transform: translateX(100%);
+            white-space: nowrap;
+            animation: moveLeft 20s linear infinite;
+            z-index: 0;
         }
 
-        .floating-image img {
-            width: 300px;
-            height: 200px;
+        .moving-images img {
+            display: inline-block;
+            height: auto;
+            width: 100%;
+            margin-right: -5px;
         }
 
-        @keyframes floatAnimation2 {
-            0% { left: 500px; }
-            50% { left: calc(100% - 200px); }
-            100% { left: 500px; }
+        @keyframes moveLeft {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
         }
 
-        .floating-image2 {
-            position: absolute;
-            top: 350px;
-            left: 1000px;
-            transform: translate(-50%, -50%);
-            animation: floatAnimation2 12s linear infinite alternate;
-            z-index: -1;
-        }
-
-        .floating-image2 img {
-            width: 200px;
-            height: 150px;
-        }
 
     </style>
 </head>
 <body>
     <h1>BinItBetter</h1>
-    <div class="floating-image">
-        <img src="https://lh3.googleusercontent.com/ibPS07YupPDdpa6Ah5OvP_tRTpitiqjCIC6219dmc4KISY72nF-BRNSWbrfimoxHT8j3QK-pJM8fmU15Q2quR3r6fv5iptg7DgBNKPw" alt="Floating Image">
-    </div>
-    <div class="floating-image2">
-        <img src="https://lh3.googleusercontent.com/ibPS07YupPDdpa6Ah5OvP_tRTpitiqjCIC6219dmc4KISY72nF-BRNSWbrfimoxHT8j3QK-pJM8fmU15Q2quR3r6fv5iptg7DgBNKPw" alt="Floating Image">
-    </div>
+    <div class="moving-images">
+     <img src="https://lh3.googleusercontent.com/9f_ni9VIosQAnHJ6c_7dNHcmbyO6pgeJMSLCDMN7lSJNIAPHpL7QDEHJO1LwRfHCxWrNeVJ792pv9xfOkNKdPYUgGNiknsGwgN_oWlA">
+     <img src="https://lh3.googleusercontent.com/9f_ni9VIosQAnHJ6c_7dNHcmbyO6pgeJMSLCDMN7lSJNIAPHpL7QDEHJO1LwRfHCxWrNeVJ792pv9xfOkNKdPYUgGNiknsGwgN_oWlA">
+     <img src="https://lh3.googleusercontent.com/9f_ni9VIosQAnHJ6c_7dNHcmbyO6pgeJMSLCDMN7lSJNIAPHpL7QDEHJO1LwRfHCxWrNeVJ792pv9xfOkNKdPYUgGNiknsGwgN_oWlA">
+   </div>
     <div class="game-container">
         <img id="food-image" src="food1.jpg" alt="Food Image" draggable="true">
         <div class="button-container">
-            <img class="button" src="https://lh3.googleusercontent.com/mXOPejvx1GAYMWHNYnkCQu4EeUq5fDXJS3UcAMHUWYInkWAnQjjk5ob0uA9me4YyxiWBUHgZm4gu-qhQtM4pVppRJ8vsa9y3XU7EDK0S" alt="Compost" onclick="sortFood('compost')">
-            <img class="button" src="https://lh3.googleusercontent.com/QwcjJ8YHiomI9OUtwvGEUBVB5bdyhWsOa3uQ19b2f5lEymgxuEekhiAejpX_rk0u6ZlEThr1z1NiH6gUcTWMLRZ1GJcnuKUclpaeLhJA" alt="Recycle" onclick="sortFood('recycle')">
-            <img class="button" src="https://lh3.googleusercontent.com/p6dLKoc53COXmffs_1Zdm3rnh_HAgHhkcFUsaUhRPjMYQGQ3-NQoMroQ_boOWczGxh5XwHXOUjBD8pVIeM3WJhhfRN4hTT5YfiW_RPjM" alt="Landfill" onclick="sortFood('landfill')">
+            <img class="button" src="https://lh3.googleusercontent.com/5ohvUsmvJuors28S3JFlgnf15qm-lfCnByAtEdPxv3z1iS2ddnuYLmZYUtgJ9rytgVSdPLPDdR30c6MH77qJGd-XoJbcqOmnGlyv9oNI" alt="Compost" onclick="sortFood('compost')">
+            <img class="button" src="https://lh3.googleusercontent.com/kYm1fhmGIPdqL5XpF79JxLFW-umrat56jLLX7rngulM-vhURDIQ_yDkqBpgercylqA8goIjXoBiSuTlfSV00_rWxlgoZ2Zj_cYbClSZF" alt="Recycle" onclick="sortFood('recycle')">
+            <img class="button" src="https://lh3.googleusercontent.com/dtddzEFfQ4JaRegKQvRC06jhRXWoaxK3b7evRcxeQHTX5t8EPmj8t7SYO4NTKoV23wyuYBplFCaZ4Fu6jVNiy-Uv_ZHVwEJeQ-BfFyNIDg" alt="Landfill" onclick="sortFood('landfill')">
         </div>
         <div id="result-dialog">
             <span id="result"></span>
@@ -152,14 +140,14 @@
             },
             {
                 name: "Plastic Water Bottle",
-                image: "https://lh3.googleusercontent.com/oEynsaTuJIcbBTBpbKw4zj4q94008pI1X4rXCJXegmzpoYMAOG8xq1ALfNoVOBdL6XIRqFQ0E-iGn3nBHP4F7oqFbHloZq4GxcGlVE6C",
+                image: "https://lh3.googleusercontent.com/cLWi1GgYzBcmOaQhotpmbabqkNpfWGkgNt99AYAscQjZ2w6dcK7nmS--sF4LCZyrRiMi14_KDxFuWlBq4JxmU24ENwG2MuBmTdpTyDJU",
                 category: "recycle",
                 funFact: "Almost every bottle and can you use can be recycled. Look at the label for the universal recycle symbol and the words CA CASH REFUND or CA CRV.* Containers with these markings are good to go in your curbside bin and will be accepted at the recycling center.",
                 source: "https://www2.calrecycle.ca.gov/BevContainer/RecyclingCenters"
             },
             {
                 name: "Toothbrush Tube",
-                image: "https://lh3.googleusercontent.com/wsbcjfV-Aqm8uP0qtezzb0lnKkmtB4oXi_1xGTojjtUhZUja_R01WrDTDg4OY1r7cfJpo6AccZZ5lFytmjIzp_i_qSFAfr0vZn37vEDZ",
+                image: "https://lh3.googleusercontent.com/B5QcO4yBHCjw7vyhuhpUgDFZN1TdwlQB2_N0lPRUCbVrtxvoA5M7YVcAym277hxbt4QfOb64WOA08qbmNZxKZ94VduRJP11oXjqlaoEx",
                 category: "recycle",
                 funFact: "Toothpaste tubes are shredded so that the residuals are exposed and more easily dissolvable and can be turned into pellets. ",
                 source: "https://earth911.com/health/recycling-toothbrushes-and-toothpaste-tubes/#:~:text=Toothpaste%20tubes%20are%20often%20made,through%20your%20curbside%20recycling%20pickup."
@@ -201,7 +189,7 @@
             },
             {
                 name: "Laundry Detergent",
-                image: "https://lh3.googleusercontent.com/8lzjkqrwfzb_NdsarehUXMMnoIjkCqYGYRl9eeXQbq50CJ1ZNbdOOFKQt7TB9NgxEEUa44zKLoPsLl_6ak3vqALpZaN0kG-5c5oQbiqf",
+                image: "https://lh3.googleusercontent.com/4uljGLmNHjyWbkN6UsmtqMvNGG-1D2MjOrOitixx9zS2mFyo3LLPrQIQq2Ilut4SL0fW7Df2i3gCF_lOYDu6g8J4r-JDCaH6QahX2R6fqQ",
                 category: "recycle",
                 funFact: "Because laundry detergent bottles do not contain any toxic chemicals and liquids, they can be recycled. Just make sure to wash and dry before putting it in the recycle bin.",
                 source: "https://www.laundrywell.com/blog/article/are-laundry-detergent-bottles-recyclable"
