@@ -74,13 +74,20 @@
             50% { transform: translateY(-20px); }
             100% { transform: translateY(0); }
         }
-
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: url(https://lh3.googleusercontent.com/zOEkpZqo-Z4tpwlpzHDSLX3ZNcyTSp-hfLTOC6NDVWAqnF-tg5LPpuRhC_nKD826L4R77Ie3kLIlKUWLBCZqnk8GkaG_e0KnVGG5NmQ) no-repeat center fixed;
+            background-size: cover;
+        }
 
         .moving-images {
             position: absolute;
-            top: 7%;
+            top: 12%;
             left: 0;
-            transform: translateX(100%);
+            transform: translateX(0%);
+            margin-right: -8%;
             white-space: nowrap;
             animation: moveLeft 20s linear infinite;
             z-index: 0;
@@ -90,7 +97,7 @@
             display: inline-block;
             height: auto;
             width: 100%;
-            margin-right: -5px;
+            margin-right: -0.3%;
         }
 
         @keyframes moveLeft {
@@ -107,6 +114,7 @@
 </head>
 <body>
     <h1>BinItBetter</h1>
+    <audio src="/Users/sophiazhang/Downloads/animalcrossing.mp3" autoplay loop></audio>
     <div class="moving-images">
      <img src="https://lh3.googleusercontent.com/9f_ni9VIosQAnHJ6c_7dNHcmbyO6pgeJMSLCDMN7lSJNIAPHpL7QDEHJO1LwRfHCxWrNeVJ792pv9xfOkNKdPYUgGNiknsGwgN_oWlA">
      <img src="https://lh3.googleusercontent.com/9f_ni9VIosQAnHJ6c_7dNHcmbyO6pgeJMSLCDMN7lSJNIAPHpL7QDEHJO1LwRfHCxWrNeVJ792pv9xfOkNKdPYUgGNiknsGwgN_oWlA">
