@@ -21,6 +21,7 @@
             height: 220px;
             margin-bottom: 20px;
             cursor: move;
+            animation: bobbing 1s infinite;
         }
 
         .button-container {
@@ -34,13 +35,14 @@
             cursor: pointer;
             width: 150px;
             height: auto;
+            border-radius: 25px;
         }
 
         #result-dialog {
             margin-top: 5px;
             margin-bottom: 10px;
             padding: 20px;
-            border: 1px solid #ccc;
+            border: 5px solid #000000;
             background-color: #f9f9f9;
             text-align: center;
             display: none
@@ -48,11 +50,11 @@
 
         #fun-fact-dialog {
             position: fixed;
-            top: 200px;
-            left: 10px;
+            top: 100px;
+            left: 50px;
             width: 350px;
             padding: 20px;
-            border: 1px solid #ccc;
+            border: 5px solid #000000;
             background-color: #f9f9f9;
             display: none;
         }
@@ -64,12 +66,19 @@
 
         h2 {font-size: 45px;font-weight: lighter;}
 
-        body {background-image:url(https://lh3.googleusercontent.com/1x2oRDugbU4Hi0sLt0prY48qqu2p0Vlkjed9xxNelrt0S1y4ViKuUuXIWwrIvzaB1PxdUmInOVkNJ9gs6Iiwa526YsM3hrLScT4vJFYm);background-size:100%;}
+        body {background-image:url(https://lh3.googleusercontent.com/dWB2mKJI-h79wO5fssvlRUVpY_PB9HB8e7gBWh94UNttW9zlin93Pxf7QbvqOx9lHBo_fXPRTu9Frp12CzFn219SJvdgz3tTakvwFPcXMg);background-size:100%;}
+
+        @keyframes bobbing {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
 
     </style>
 </head>
 <body>
     <h1>BinItBetter</h1>
+
     <div class="game-container">
         <img id="food-image" src="food1.jpg" alt="Food Image" draggable="true">
         <div class="button-container">
