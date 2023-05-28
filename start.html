@@ -8,15 +8,55 @@
 <style>
 p     {font-size: 40px; font-family: Georgia; color: #53652E}
 h1    {font-size: 120px; font-family: Georgia;color: #2B303A}
-body {background-image:url(https://lh3.googleusercontent.com/1x2oRDugbU4Hi0sLt0prY48qqu2p0Vlkjed9xxNelrt0S1y4ViKuUuXIWwrIvzaB1PxdUmInOVkNJ9gs6Iiwa526YsM3hrLScT4vJFYm);background-size:100%;}
+body {background-image:url(https://lh3.googleusercontent.com/1x2oRDugbU4Hi0sLt0prY48qqu2p0Vlkjed9xxNelrt0S1y4ViKuUuXIWwrIvzaB1PxdUmInOVkNJ9gs6Iiwa526YsM3hrLScT4vJFYm);background-size:100%;z-index:1;}
 input {font-size:80px;font-family: Georgia; color:#D1EAEE; background: #2B303A; transition:1s;border-style:solid; border-color:#61879B;border-width:3px;border-radius:30px;padding:2%;}
 input:hover {background: #D1EAEE; color:#2B303A; transition:0.5s}
+
+body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: url(https://lh3.googleusercontent.com/zOEkpZqo-Z4tpwlpzHDSLX3ZNcyTSp-hfLTOC6NDVWAqnF-tg5LPpuRhC_nKD826L4R77Ie3kLIlKUWLBCZqnk8GkaG_e0KnVGG5NmQ) no-repeat center fixed;
+        background-size: cover;
+    }
+
+    .moving-images {
+        position: absolute;
+        top: 12%;
+        left: 0;
+        transform: translateX(0%);
+        margin-right: -8%;
+        white-space: nowrap;
+        animation: moveLeft 20s linear infinite;
+        z-index: -1;
+    }
+
+    .moving-images img {
+        display: inline-block;
+        height: auto;
+        width: 100%;
+        margin-right: -0.3%;
+    }
+
+    @keyframes moveLeft {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
 
 </style>
 </head>
   <body>
     <center>
       <h1> BinItBetter </h1>
+          <div class="moving-images">
+             <img src="https://lh3.googleusercontent.com/9f_ni9VIosQAnHJ6c_7dNHcmbyO6pgeJMSLCDMN7lSJNIAPHpL7QDEHJO1LwRfHCxWrNeVJ792pv9xfOkNKdPYUgGNiknsGwgN_oWlA">
+             <img src="https://lh3.googleusercontent.com/9f_ni9VIosQAnHJ6c_7dNHcmbyO6pgeJMSLCDMN7lSJNIAPHpL7QDEHJO1LwRfHCxWrNeVJ792pv9xfOkNKdPYUgGNiknsGwgN_oWlA">
+             <img src="https://lh3.googleusercontent.com/9f_ni9VIosQAnHJ6c_7dNHcmbyO6pgeJMSLCDMN7lSJNIAPHpL7QDEHJO1LwRfHCxWrNeVJ792pv9xfOkNKdPYUgGNiknsGwgN_oWlA">
+           </div>
       <p> Sort which bin each item should be placed in.<br>
         Press Start to begin.</p>
       <a href="game.html">
