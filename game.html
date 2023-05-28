@@ -110,7 +110,7 @@
                 image: "https://lh3.googleusercontent.com/B8QQBRsM7Ec4cbLkogs05_1VkRdARUt0aHcPCfVruq-OPOjjCfbWonsrkzTOmX9yK0m-vWRN-Ci-yoWlsIlxIjTGre3B8-68l9srvaqO",
                 category: "landfill",
                 funFact: "The shiny lining in chip bags is often aluminum or mixed plastic. Since recycling plants cannot separate the layers, these mixed-material bags cannot be recycled. Toss them in the garbage.",
-                source: ""
+                source: "https://naparecycling.com/guide/potato-chip-snack-bags/#:~:text=The%20shiny%20lining%20in%20chip,Toss%20them%20in%20the%20garbage."
             },
             {
                 name: "Paper Towel",
@@ -130,8 +130,8 @@
                 name: "Cardboard Box",
                 image: "https://lh3.googleusercontent.com/XRatqcolgG0gBw1B1zSrClAAnurOH8gv9AjSyvCKPvIhK1dz47pl2GT3gKZkNvABjTxvv_W2f-AZDcWrQhCm5LDidoW-QQQxEsR94vB4",
                 category: "recycle",
-                funFact: "fun fact",
-                source: ""
+                funFact: " In 2018, approximately 32.1 million tons of corrugated boxes were recycled out of 33.9 million tons of total paper and paperboard recycling. ",
+                source: "https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/containers-and-packaging-product-specific#PaperandPaperboardC&P"
             },
             {
                 name: "Plastic Bag",
@@ -151,8 +151,8 @@
                 name: "Plastic Utensils",
                 image: "https://lh3.googleusercontent.com/HKVBlfd3q8yofKcK50fO2NPNPpcOce8OIeG8zHu_nzIsg0p1I-462nV75nYuW1SaGLI67XBJTebNO33LSqyHQrVXYT7gpw8DshwsQchP",
                 category: "landfill",
-                funFact: "fun fact",
-                source: ""
+                funFact: "Each year 40 billion plastic forks, spoons, and knives are used and thrown away each year in the US.",
+                source: "https://habitsofwaste.org/call-to-action/plastic-straws-cutlery/"
             },
             {
                 name: "Biodegradable Utensils",
@@ -220,7 +220,7 @@
                 resultElement.textContent = "Correct! You placed " + currentFood.name + " in the " + category + " bin!";
                 showFunFact(currentFood.funFact);
             } else {
-                resultElement.textContent = "Oops! That's incorrect. " + currentFood.name + " should be placed in the " + currentFood.category + " bin.";
+                resultElement.textContent = "Oops! That's incorrect.";
                 clearFunFact();
             }
         }
